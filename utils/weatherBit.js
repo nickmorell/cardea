@@ -1,11 +1,9 @@
-const Conf = require('conf')
 const axios = require('axios')
 
 let baseUrl = 'https://api.weatherbit.io/v2.0/'
 
 module.exports = {
-    getCurrent: async (configKey) =>{
-        const config = new Conf();
+    getCurrent: async (config, configKey) =>{
         let currentConfigObject = config.get(configKey);
         
         let unit = 'I';
@@ -19,8 +17,7 @@ module.exports = {
           });
         return data.data.data;
     },
-    getForecast: async (configKey) => {
-        const config = new Conf();
+    getForecast: async (config, configKey) => {
         let currentConfigObject = config.get(configKey);
         
         let unit = 'I';

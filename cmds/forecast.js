@@ -2,16 +2,14 @@ const ora = require('ora')
 const chalk = require('chalk')
 const api = require('../utils/weatherBit')
 const Table = require('cli-table3')
-const Conf = require('conf');
 const configKey = require('../cmds/configure').configKey
 
-module.exports = async (args) => {
+module.exports = async (args, config) => {
   const spinner = ora().start()
-  const config = new Conf();
   let currentConfigObject = config.get(configKey)
 
   try {
-    api.getForecast(configKey).then((data) =>{
+    api.getForecast(config, configKey).then((data) =>{
 
       const table = new Table({
         head: ['City', 'State', 'Wind', 'Cloud', 'Percipitation', 'Weather', 'Tempature'],

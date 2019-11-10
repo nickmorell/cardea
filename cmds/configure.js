@@ -1,12 +1,10 @@
-const Conf =  require('conf')
 const Table = require('cli-table3')
 const {validateApiKey, validateCityId, validateUnits} = require('../utils/validator')
 
 const configKey = 'weather-cli';
 module.exports = {
     configKey: configKey,
-    configure: function configure(args) {
-        const config = new Conf();
+    configure: function configure(args, config) {
 
         if (args._.includes('clear')) {
             config.clear();

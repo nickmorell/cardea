@@ -1,9 +1,7 @@
 const Conf = require('conf')
 export const configKey = 'weather-cli';
 
-module.exports = async (args) => {
-    const config = new Conf();
-
+module.exports = async (args, config) => {
     let currentConfigObject = config.get(configKey);
     currentConfigObject = currentConfigObject || {};
 
