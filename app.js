@@ -12,17 +12,11 @@ module.exports = () => {
   const cmd = args._[0] || 'help'
 
 switch (cmd) {
-  case 'config':
-    require('./cmds/configure').configure(args, conf)
-    break
-  case 'today':
-    require('./cmds/today') (args, config)
-    break
-  case 'forecast':
-    require('./cmds/forecast')(args, config)
+  case 'weatherbit': 
+    require('./cmds/weatherBit') (args, config)
     break
   case 'version':
-    require('./cmds/version') (args)
+    require('./cmds/version') ()
     break
   case 'help':
     require('./cmds/help') (args)
